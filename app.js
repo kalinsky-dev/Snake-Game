@@ -13,6 +13,8 @@ const vSize = 20;
 const gridSize = width / hSize;
 
 let timer = null;
+
+// Snake Data
 const apple = {
   x: 5,
   y: 5,
@@ -32,6 +34,7 @@ const snakeDirection = {
   y: 0,
 };
 
+// User Interaction
 window.addEventListener('keydown', (event) => {
   switch (event.key) {
     case 'ArrowUp':
