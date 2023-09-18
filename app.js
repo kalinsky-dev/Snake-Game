@@ -17,6 +17,11 @@ const snake = {
   y: 10,
 };
 
+const tail = {
+  x: 9,
+  y: 10,
+};
+
 const snakeDirection = {
   x: 1,
   y: 0,
@@ -72,6 +77,9 @@ function rect(x, y, color) {
 // Function for the physical frame
 // Runs at some fixed speed, so that we have more precise calculations
 function tick() {
+  tail.x = snake.x;
+  tail.y = snake.y;
+
   snake.x += snakeDirection.x;
   snake.y += snakeDirection.y;
 
@@ -95,10 +103,18 @@ function drawScene() {
   clear();
   drawGrid();
   rect(snake.x, snake.y, 'orange');
+  rect(tail.x, tail.y, 'green');
+}
+
+function main() {
+  // Physics always runs before graphics so that we don't have a single frame delay
+  //  between the state of the game and what the player sees
+  tick();
+  drawScene();
 }
 
 function start() {
-  setInterval(drawScene, 100);
+  setInterval(main, 100);
 }
 
 start();
