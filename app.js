@@ -69,7 +69,9 @@ function rect(x, y, color) {
   ctx.fillRect(x * gridSize, y * gridSize, gridSize, gridSize);
 }
 
-function drawScene() {
+// Function for the physical frame
+// Runs at some fixed speed, so that we have more precise calculations
+function tick() {
   snake.x += snakeDirection.x;
   snake.y += snakeDirection.y;
 
@@ -85,7 +87,11 @@ function drawScene() {
   if (snake.y == vSize) {
     snake.y = 0;
   }
+}
 
+// Function for the graphic frame
+// Runs at the speed the video card can support
+function drawScene() {
   clear();
   drawGrid();
   rect(snake.x, snake.y, 'orange');
