@@ -78,9 +78,22 @@ function rect(x, y, color) {
   ctx.fillRect(x * gridSize + 1, y * gridSize + 1, gridSize - 2, gridSize - 2);
 }
 
+// Move the apple on the random place
+function spawnApple() {
+  apple.x = Math.floor(Math.random() * hSize);
+  apple.y = Math.floor(Math.random() * vSize);
+
+  for (let segment of tail) {
+    if (segment.x == apple.x && segment.y == apple.y) {
+      spawnApple();
+    }
+  }
+}
+
 // Function for the physical frame
 // Runs at some fixed speed, so that we have more precise calculations
 function tick() {
+  // Snake movement
   tail.push({
     x: snake.x,
     y: snake.y,
@@ -105,6 +118,11 @@ function tick() {
   if (snake.y == vSize) {
     snake.y = 0;
   }
+  // Check if the snake eats the apple
+  if (snake.x == apple.x && snake.y == apple.y) {
+    snakeSize++;
+    spawnApple();
+  }
 }
 
 // Function for the graphic frame
@@ -127,6 +145,7 @@ function main() {
 }
 
 function start() {
+  spawnApple();
   setInterval(main, 100);
 }
 
