@@ -70,7 +70,7 @@ function drawGrid() {
 
 function rect(x, y, color) {
   ctx.fillStyle = color;
-  ctx.fillRect(x * gridSize, y * gridSize, gridSize, gridSize);
+  ctx.fillRect(x * gridSize + 1, y * gridSize + 1, gridSize - 2, gridSize - 2);
 }
 
 // Function for the physical frame
