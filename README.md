@@ -11,7 +11,7 @@
 
 ## Installation
 
-To use the Weather Application locally, follow these steps:
+To play the Snake Game locally, follow these steps:
 
 1.  Clone the repository:
 
