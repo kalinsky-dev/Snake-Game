@@ -17,10 +17,9 @@ const snake = {
   y: 10,
 };
 
-const tail = {
-  x: 9,
-  y: 10,
-};
+const tail = [];
+
+let snakeSize = 3;
 
 const snakeDirection = {
   x: 1,
@@ -77,8 +76,14 @@ function rect(x, y, color) {
 // Function for the physical frame
 // Runs at some fixed speed, so that we have more precise calculations
 function tick() {
-  tail.x = snake.x;
-  tail.y = snake.y;
+  tail.push({
+    x: snake.x,
+    y: snake.y,
+  });
+
+  while (tail.length > snakeSize) {
+    tail.shift();
+  }
 
   snake.x += snakeDirection.x;
   snake.y += snakeDirection.y;
@@ -103,7 +108,9 @@ function drawScene() {
   clear();
   drawGrid();
   rect(snake.x, snake.y, 'orange');
-  rect(tail.x, tail.y, 'green');
+  for (const segment of tail) {
+    rect(segment.x, segment.y, 'green');
+  }
 }
 
 function main() {
