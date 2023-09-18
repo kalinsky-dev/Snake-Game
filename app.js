@@ -66,7 +66,7 @@ function clear() {
 }
 
 function drawGrid() {
-  ctx.strokeStyle = '#999999';
+  ctx.strokeStyle = '#888888';
   ctx.beginPath();
 
   for (let x = 1; x < hSize; x++) {
