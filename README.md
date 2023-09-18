@@ -25,7 +25,7 @@ To play the Snake Game locally, follow these steps:
 
 That's it! You can now start playing the Snake-Game on your local machine. Enjoy!
 
-<h2 align="center">Screenshots</h2>
+<h2 align="center">Screenshot</h2>
 
 ![app](./screenshots/Snake.png)
 
