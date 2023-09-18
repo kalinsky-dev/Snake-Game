@@ -21,15 +21,27 @@ window.addEventListener('keydown', (event) => {
   switch (event.key) {
     case 'ArrowUp':
       snake.y--;
+      if (snake.y == -1) {
+        snake.y = vSize - 1;
+      }
       break;
     case 'ArrowDown':
       snake.y++;
+      if (snake.x == vSize) {
+        snake.x = 0;
+      }
       break;
     case 'ArrowLeft':
       snake.x--;
+      if (snake.x == -1) {
+        snake.x = hSize - 1;
+      }
       break;
     case 'ArrowRight':
       snake.x++;
+      if (snake.x == hSize) {
+        snake.x = 0;
+      }
       break;
   }
 });
