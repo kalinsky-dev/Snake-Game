@@ -17,31 +17,28 @@ const snake = {
   y: 10,
 };
 
+const snakeDirection = {
+  x: 1,
+  y: 0,
+};
+
 window.addEventListener('keydown', (event) => {
   switch (event.key) {
     case 'ArrowUp':
-      snake.y--;
-      if (snake.y == -1) {
-        snake.y = vSize - 1;
-      }
+      snakeDirection.x = 0;
+      snakeDirection.y = -1;
       break;
     case 'ArrowDown':
-      snake.y++;
-      if (snake.x == vSize) {
-        snake.x = 0;
-      }
+      snakeDirection.x = 0;
+      snakeDirection.y = 1;
       break;
     case 'ArrowLeft':
-      snake.x--;
-      if (snake.x == -1) {
-        snake.x = hSize - 1;
-      }
+      snakeDirection.x = -1;
+      snakeDirection.y = 0;
       break;
     case 'ArrowRight':
-      snake.x++;
-      if (snake.x == hSize) {
-        snake.x = 0;
-      }
+      snakeDirection.x = 1;
+      snakeDirection.y = 0;
       break;
   }
 });
@@ -73,6 +70,22 @@ function rect(x, y, color) {
 }
 
 function drawScene() {
+  snake.x += snakeDirection.x;
+  snake.y += snakeDirection.y;
+
+  if (snake.x == -1) {
+    snake.x = hSize - 1;
+  }
+  if (snake.x == hSize) {
+    snake.x = 0;
+  }
+  if (snake.y == -1) {
+    snake.y = vSize - 1;
+  }
+  if (snake.y == vSize) {
+    snake.y = 0;
+  }
+
   clear();
   drawGrid();
   rect(snake.x, snake.y, 'orange');
