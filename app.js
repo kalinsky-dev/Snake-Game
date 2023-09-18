@@ -34,20 +34,28 @@ const snakeDirection = {
 window.addEventListener('keydown', (event) => {
   switch (event.key) {
     case 'ArrowUp':
-      snakeDirection.x = 0;
-      snakeDirection.y = -1;
+      if (snakeDirection.y == 0) {
+        snakeDirection.x = 0;
+        snakeDirection.y = -1;
+      }
       break;
     case 'ArrowDown':
-      snakeDirection.x = 0;
-      snakeDirection.y = 1;
+      if (snakeDirection.y == 0) {
+        snakeDirection.x = 0;
+        snakeDirection.y = 1;
+      }
       break;
     case 'ArrowLeft':
-      snakeDirection.x = -1;
-      snakeDirection.y = 0;
+      if (snakeDirection.x == 0) {
+        snakeDirection.x = -1;
+        snakeDirection.y = 0;
+      }
       break;
     case 'ArrowRight':
-      snakeDirection.x = 1;
-      snakeDirection.y = 0;
+      if (snakeDirection.x == 0) {
+        snakeDirection.x = 1;
+        snakeDirection.y = 0;
+      }
       break;
   }
 });
