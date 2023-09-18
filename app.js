@@ -14,7 +14,7 @@ const gridSize = width / hSize;
 
 let timer = null;
 
-// Snake Data
+// Snake and Apple Data
 const apple = {
   x: 5,
   y: 5,
