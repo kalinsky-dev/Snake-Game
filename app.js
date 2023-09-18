@@ -32,3 +32,15 @@ function drawGrid() {
   ctx.closePath();
   ctx.stroke();
 }
+
+function rect(x, y, color) {
+  ctx.fillStyle = color;
+  ctx.fillRect(x * gridSize, y * gridSize, gridSize, gridSize);
+}
+
+function start() {
+  clear();
+  drawGrid();
+}
+
+start();
