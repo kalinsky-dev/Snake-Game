@@ -83,6 +83,8 @@ function spawnApple() {
   apple.x = Math.floor(Math.random() * hSize);
   apple.y = Math.floor(Math.random() * vSize);
 
+  // Move the apple if its place is on the snake
+  // Potentially infinite recursion!!!
   for (let segment of tail) {
     if (segment.x == apple.x && segment.y == apple.y) {
       spawnApple();
@@ -118,7 +120,16 @@ function tick() {
   if (snake.y == vSize) {
     snake.y = 0;
   }
-  // Check if the snake eats the apple
+
+  // Check if the snake has bitten itself - Game Over!
+  for (let segment of tail) {
+    if (segment.x == snake.x && segment.y == snake.y) {
+      gameOver();
+    }
+  }
+
+  // Check if the snake eats the apple and
+  // move the apple on another place
   if (snake.x == apple.x && snake.y == apple.y) {
     snakeSize++;
     spawnApple();
@@ -144,9 +155,28 @@ function main() {
   drawScene();
 }
 
+function gameOver() {
+  clearInterval(timer);
+  const choice = confirm(
+    `Game over!\nYour score: ${(snakeSize - 3) * 100}\n\nPlay again?`
+  );
+
+  if (choice == true) {
+    start();
+  }
+}
+
 function start() {
+  snake.x = 10;
+  snake.y = 10;
+  tail.length = 0;
+  snakeSize = 3;
+  snakeDirection.x = 1;
+  snakeDirection.y = 0;
+
   spawnApple();
-  setInterval(main, 100);
+
+  timer = setInterval(main, 100);
 }
 
 start();
