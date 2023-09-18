@@ -1,5 +1,6 @@
 <h1 align="center">Snake-Game</h1>
-This is my Snake Game. 
+<h2 align="center">This is my Snake Game. </h2>
+
 
 ## Created with:
 
