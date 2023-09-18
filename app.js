@@ -12,9 +12,14 @@ const hSize = 20;
 const vSize = 20;
 const gridSize = width / hSize;
 
+
+window.addEventListener('keydown',(event)=>{
+  console.log(event.key);
+})
+
 function clear() {
   ctx.clearRect(0, 0, width, height);
-}
+};
 
 function drawGrid() {
   ctx.strokeStyle = '#999999';
@@ -31,16 +36,16 @@ function drawGrid() {
 
   ctx.closePath();
   ctx.stroke();
-}
+};
 
 function rect(x, y, color) {
   ctx.fillStyle = color;
   ctx.fillRect(x * gridSize, y * gridSize, gridSize, gridSize);
-}
+};
 
 function start() {
   clear();
   drawGrid();
-}
+};
 
 start();
