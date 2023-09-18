@@ -12,14 +12,31 @@ const hSize = 20;
 const vSize = 20;
 const gridSize = width / hSize;
 
+const snake = {
+  x: 10,
+  y: 10,
+};
 
-window.addEventListener('keydown',(event)=>{
-  console.log(event.key);
-})
+window.addEventListener('keydown', (event) => {
+  switch (event.key) {
+    case 'ArrowUp':
+      snake.y--;
+      break;
+    case 'ArrowDown':
+      snake.y++;
+      break;
+    case 'ArrowLeft':
+      snake.x--;
+      break;
+    case 'ArrowRight':
+      snake.x++;
+      break;
+  }
+});
 
 function clear() {
   ctx.clearRect(0, 0, width, height);
-};
+}
 
 function drawGrid() {
   ctx.strokeStyle = '#999999';
@@ -36,16 +53,21 @@ function drawGrid() {
 
   ctx.closePath();
   ctx.stroke();
-};
+}
 
 function rect(x, y, color) {
   ctx.fillStyle = color;
   ctx.fillRect(x * gridSize, y * gridSize, gridSize, gridSize);
-};
+}
 
-function start() {
+function drawScene() {
   clear();
   drawGrid();
-};
+  rect(snake.x, snake.y, 'orange');
+}
+
+function start() {
+  setInterval(drawScene, 100);
+}
 
 start();
