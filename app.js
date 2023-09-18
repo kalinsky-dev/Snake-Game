@@ -12,6 +12,11 @@ const hSize = 20;
 const vSize = 20;
 const gridSize = width / hSize;
 
+const apple = {
+  x: 5,
+  y: 5,
+};
+
 const snake = {
   x: 10,
   y: 10,
@@ -111,6 +116,7 @@ function drawScene() {
   for (const segment of tail) {
     rect(segment.x, segment.y, 'green');
   }
+  rect(apple.x, apple.y, 'red');
 }
 
 function main() {
