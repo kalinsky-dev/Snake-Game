@@ -25,7 +25,7 @@ To use the Weather Application locally, follow these steps:
 
 That's it! You can now start playing the Snake-Game on your local machine. Enjoy!
 
-## Screenshots
+<h2 align="center">Screenshots</h2>
 
 ![app](./screenshots/Snake.png)
 
