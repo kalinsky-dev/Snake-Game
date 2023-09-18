@@ -12,6 +12,7 @@ const hSize = 20;
 const vSize = 20;
 const gridSize = width / hSize;
 
+let timer = null;
 const apple = {
   x: 5,
   y: 5,
