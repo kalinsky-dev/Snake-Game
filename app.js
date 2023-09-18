@@ -12,8 +12,12 @@ const hSize = 20;
 const vSize = 20;
 const gridSize = width / hSize;
 
+function clear() {
+  ctx.clearRect(0, 0, width, height);
+}
+
 function drawGrid() {
-  ctx.strokeStyle='#999999';
+  ctx.strokeStyle = '#999999';
   ctx.beginPath();
 
   for (let x = 1; x < hSize; x++) {
